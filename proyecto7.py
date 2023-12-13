@@ -1,16 +1,15 @@
+# Librerias ---------------------------------------- 
+
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 
-df = pd.read_csv('users_behavior.csv')
-df.head()
+# Loading data ---------------------------------------- 
+df = pd.read_csv('files/datasets/input/users_behavior.csv')
 
-print(df.info())
-
-# %% [markdown]
-# # 2. Splitting data into sets
+# Splitting data into sets ---------------------------------------- 
 
 from sklearn.model_selection import train_test_split
 
@@ -24,12 +23,7 @@ target_valid = valid['is_ultra']
 features_test = test.drop(['is_ultra'], axis=1)
 target_test = test['is_ultra']
 
-print(features_train.shape)
-print(features_valid.shape)
-print(features_test.shape)
-
-# %% [markdown]
-# # 3. Tuning models
+# Tuning models ---------------------------------------- 
 
 print("Decision Tree")
 for depth in range(1, 11):
@@ -53,15 +47,7 @@ model.fit(features_train, target_train)
 print("Train:", model.score(features_train, target_train))
 print("Valid:", model.score(features_valid, target_valid))
 
-# %% [markdown]
-# ### Findings
-# 
-# - Linear regression shows the worst performance but it is not overfitted
-# - Decision tree is overfitted but the accuracy is higher
-# - Random forrest is also overfitted but the accuracy is slightly higher compared to decision tree
-
-# %% [markdown]
-# # 4. Testing model
+# Testing model ---------------------------------------- 
 
 features_full_train = train_valid.drop(['is_ultra'], axis=1)
 target_full_train = train_valid['is_ultra']
@@ -70,12 +56,8 @@ model = RandomForestClassifier(n_estimators=80, random_state=12345)
 model.fit(features_full_train, target_full_train)
 model.score(features_test, target_test)
 
-# %% [markdown]
-# # 5. Additional task: sanity check
 
-df['is_ultra'].value_counts() / df.shape[0]
+# Sanity check ---------------------------------------- 
 
-# %% [markdown]
-# Sanity check score is ~69%, so the logistic regression hasn't learned much.
-
+print(f"Sanity check: {df['is_ultra'].value_counts() / df.shape[0]}")
 
