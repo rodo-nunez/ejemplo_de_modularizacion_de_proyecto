@@ -22,9 +22,11 @@ target_test = test['is_ultra']
 
 # Save data ---------------------------------------- 
 
-features_train.to_csv("files/datasets/intermediate/a03_features_train.csv")
-target_train.to_csv("files/datasets/intermediate/a03_target_train.csv")
-features_valid.to_csv("files/datasets/intermediate/a03_features_valid.csv")
-target_valid.to_csv("files/datasets/intermediate/a03_target_valid.csv")
-features_test.to_csv("files/datasets/intermediate/a03_features_test.csv")
-target_test.to_csv("files/datasets/intermediate/a03_target_test.csv")
+train_valid.to_csv("files/datasets/intermediate/a03_train_valid.csv")
+
+features_train.to_csv("files/datasets/intermediate/a03_features_train.csv", index=False)
+target_train.to_csv("files/datasets/intermediate/a03_target_train.csv", index=False)
+features_valid.to_csv("files/datasets/intermediate/a03_features_valid.csv", index=False)
+target_valid.to_csv("files/datasets/intermediate/a03_target_valid.csv", index=False)
+features_test.to_csv("files/datasets/intermediate/a03_features_test.csv", index=False)
+target_test.to_csv("files/datasets/intermediate/a03_target_test.csv", index=False)
