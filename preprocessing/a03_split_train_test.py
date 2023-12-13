@@ -22,7 +22,7 @@ target_test = test['is_ultra']
 
 # Save data ---------------------------------------- 
 
-train_valid.to_csv("files/datasets/intermediate/a03_train_valid.csv")
+train_valid.to_csv("files/datasets/intermediate/a03_train_valid.csv", index=False)
 
 features_train.to_csv("files/datasets/intermediate/a03_features_train.csv", index=False)
 target_train.to_csv("files/datasets/intermediate/a03_target_train.csv", index=False)

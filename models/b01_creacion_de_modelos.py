@@ -44,9 +44,9 @@ print("Valid:", model_lr.score(features_valid, target_valid))
 features_full_train = train_valid.drop(['is_ultra'], axis=1)
 target_full_train = train_valid['is_ultra']
 
-model = RandomForestClassifier(n_estimators=80, random_state=12345)
-model.fit(features_full_train, target_full_train)
-model.score(features_test, target_test)
+model_rf_2 = RandomForestClassifier(n_estimators=80, random_state=12345)
+model_rf_2.fit(features_full_train, target_full_train)
+model_rf_2.score(features_test, target_test)
 
 # Save model ---------------------------------------- 
 
@@ -63,4 +63,9 @@ joblib.dump(
 joblib.dump(
         model_lr,
         f"files/modeling_output/model_fit/b01_model_lr.joblib"
+        )
+
+joblib.dump(
+        model_rf_2,
+        f"files/modeling_output/model_fit/b01_model_rf_2.joblib"
         )
