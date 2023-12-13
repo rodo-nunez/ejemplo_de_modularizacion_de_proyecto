@@ -3,7 +3,7 @@
 import pandas as pd
 
 # Loading data ---------------------------------------- 
-users_behavior_raw = pd.read_csv('files/datasets/input/users_behavior.csv')
+users_behavior_raw = pd.read_csv("files/datasets/input/users_behavior.csv")
 
 # Cleaning columns ---------------------------------------- 
 
