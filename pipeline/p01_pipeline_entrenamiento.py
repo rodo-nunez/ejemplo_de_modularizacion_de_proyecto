@@ -4,12 +4,26 @@ import os, sys
 import argparse
 import params as params
 
+# Argumentos por linea de comandos ---------------------------------------- 
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--periodo', default=f'{params.periodo_YYYYMM}', help='periodo en formato YYYYMM')
+
+try:
+    args = parser.parse_args()
+except argparse.ArgumentTypeError as e:
+    print(f"Invalid argument: {e}")
+    
 # Definir extension de ejecutables ---------------------------------------- 
 
 if params.sistema_operativo == 'Windows':
         extension_binarios = ".exe"
 else:
         extension_binarios = ""
+
+# Info ---------------------------------------- 
+
+print(f"---------------------------------- \nComenzando proceso para periodo: {args.periodo}\n----------------------------------")
 
 # Preproceso ---------------------------------------- 
 
